@@ -1,0 +1,344 @@
+.evolution-chart {
+  background: var(--content-bg);
+  padding: 32px;
+  width: 100%;
+  box-sizing: border-box;
+  border-top: 3px solid #E34040;
+}
+
+.evolution-chart__title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 16px 0;
+  text-transform: capitalize;
+  letter-spacing: -0.5px;
+  text-align: center;
+}
+
+.evolution-chart__container {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.evolution-chart__chain {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: nowrap;
+  padding: 0;
+}
+
+.evolution-chart__pokemon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.evolution-chart__pokemon-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+  min-width: auto;
+}
+
+.evolution-chart__pokemon-button:hover {
+  transform: translateY(-2px);
+}
+
+.evolution-chart__pokemon-image {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border-radius: 0;
+  overflow: visible;
+}
+
+.evolution-chart__pokemon-image img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  transition: transform 0.2s ease;
+}
+
+.evolution-chart__pokemon-button:hover .evolution-chart__pokemon-image img {
+  transform: scale(1.05);
+}
+
+.evolution-chart__pokemon-placeholder {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--text-light);
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.evolution-chart__pokemon-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  text-align: center;
+  text-transform: capitalize;
+  line-height: 1.2;
+  margin-top: 4px;
+}
+
+.evolution-chart__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FF6B6B;
+  flex-shrink: 0;
+  margin: 0;
+  width: 70px;
+  height: 30px;
+}
+
+.evolution-chart__arrow svg {
+  width: 70px;
+  height: 30px;
+  stroke-width: 2;
+}
+
+.evolution-chart__info {
+  display: none;
+}
+
+.evolution-chart__loading {
+  padding: 32px 0;
+}
+
+.evolution-chart__skeleton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: nowrap;
+}
+
+.evolution-chart__skeleton-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.evolution-chart__skeleton-image {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 4px;
+}
+
+.evolution-chart__skeleton-name {
+  width: 60px;
+  height: 14px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 2px;
+}
+
+.evolution-chart__skeleton-arrow {
+  width: 32px;
+  height: 20px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 2px;
+}
+
+.evolution-chart__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.evolution-chart__empty-icon {
+  color: var(--text-light);
+  opacity: 0.5;
+  margin-bottom: 16px;
+}
+
+.evolution-chart__empty-text {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .evolution-chart {
+    padding: 24px;
+  }
+  
+  .evolution-chart__chain {
+    gap: 16px;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .evolution-chart__arrow {
+    transform: rotate(90deg);
+    margin: 8px 0;
+  }
+  
+  .evolution-chart__pokemon-image {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .evolution-chart__pokemon-image img {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .evolution-chart__pokemon-name {
+    font-size: 13px;
+  }
+  
+  .evolution-chart__title {
+    margin-bottom: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .evolution-chart {
+    padding: 16px;
+  }
+  
+  .evolution-chart__title {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .evolution-chart__chain {
+    gap: 12px;
+  }
+  
+  .evolution-chart__pokemon-image {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .evolution-chart__pokemon-image img {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .evolution-chart__pokemon-name {
+    font-size: 12px;
+  }
+  
+  .evolution-chart__arrow {
+    margin: 6px 0;
+  }
+  
+  .evolution-chart__arrow svg {
+    width: 24px;
+    height: 16px;
+  }
+}
+
+.evolution-chart__pokemon-button:focus-visible {
+  outline: 2px solid #FF6B6B;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.evolution-chart {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.evolution-chart__pokemon {
+  animation: slideInUp 0.6s ease-out;
+  animation-delay: calc(var(--index, 0) * 0.1s);
+  animation-fill-mode: both;
+}
+
+.evolution-chart__arrow {
+  animation: fadeIn 0.6s ease-out;
+  animation-delay: calc(var(--index, 0) * 0.1s + 0.3s);
+  animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .evolution-chart,
+  .evolution-chart__pokemon,
+  .evolution-chart__arrow,
+  .evolution-chart__pokemon-button,
+  .evolution-chart__pokemon-image img {
+    animation: none;
+    transition: none;
+  }
+  
+  .evolution-chart__pokemon-button:hover {
+    transform: none;
+  }
+  
+  .evolution-chart__pokemon-button:hover .evolution-chart__pokemon-image img {
+    transform: none;
+  }
+  
+  .evolution-chart__skeleton-image,
+  .evolution-chart__skeleton-name,
+  .evolution-chart__skeleton-arrow {
+    animation: none;
+  }
+}

@@ -1,0 +1,306 @@
+.sidebar {
+  width: var(--pokemon-window-width);
+  height: 100%;
+  background: var(--pokemon-window-bg);
+  border: 3px solid var(--pokemon-border);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.9);
+  flex-shrink: 0;
+  font-family: var(--font-family);
+}
+
+.sidebar__content {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar__list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0;
+  margin: 0;
+  scrollbar-color: var(--pokemon-border) rgba(177, 51, 51, 0.2);
+}
+
+.sidebar__item {
+  margin: 0;
+  list-style: none;
+  border-bottom: 3px solid var(--pokemon-sidebar-border-items);
+}
+
+.sidebar__item:last-child {
+  border-bottom: none;
+}
+
+.sidebar__button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 15px 40px;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  text-align: left;
+  position: relative;
+  gap: 25px;
+  min-height: 80px;
+}
+
+.sidebar__button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar__item--selected .sidebar__button {
+  background: var(--pokemon-selected-bg);
+}
+
+.sidebar__item--selected .sidebar__button:hover {
+  background: var(--pokemon-selected-bg);
+}
+
+.sidebar__avatar {
+  position: relative;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: visible;
+}
+
+.sidebar__avatar-image {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  filter: none;
+}
+
+.sidebar__avatar-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.4);
+  z-index: -1;
+}
+
+.sidebar__avatar-placeholder svg {
+  width: 20px;
+  height: 20px;
+}
+
+.sidebar__info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sidebar__name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 2px;
+  text-transform: capitalize;
+  letter-spacing: 0.3px;
+}
+
+.sidebar__id {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 400;
+  font-family: var(--font-family-mono);
+  opacity: 0.9;
+}
+
+.sidebar__id-corner {
+  position: absolute;
+  right: 40px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  font-family: var(--font-family-mono);
+}
+
+.sidebar__loading {
+  padding: 8px;
+}
+
+.sidebar__skeleton-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  margin-bottom: 1px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.sidebar__skeleton-avatar {
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  animation: shimmer 1.5s infinite ease-in-out;
+}
+
+.sidebar__skeleton-content {
+  flex: 1;
+}
+
+.sidebar__skeleton-line {
+  height: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  margin-bottom: 6px;
+  animation: shimmer 1.5s infinite ease-in-out;
+}
+
+.sidebar__skeleton-line--short {
+  width: 40%;
+  height: 10px;
+}
+
+.sidebar__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  height: 100%;
+}
+
+.sidebar__empty-icon {
+  margin-bottom: 16px;
+  opacity: 0.6;
+}
+
+.sidebar__empty-icon svg {
+  width: 48px;
+  height: 48px;
+}
+
+.sidebar__empty-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 8px;
+}
+
+.sidebar__empty-description {
+  font-size: 13px;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.sidebar__footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 10px 16px;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.sidebar__footer-text {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  margin: 0;
+  font-weight: 500;
+}
+
+@keyframes shimmer {
+  0% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.4;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    left: -360px;
+    width: 340px;
+    height: calc(100vh - 32px);
+    top: 16px;
+    transition: left 0.3s ease;
+    z-index: 1000;
+    box-shadow: 8px 0 25px rgba(0, 0, 0, 0.4);
+  }
+  
+  .sidebar--open {
+    left: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sidebar,
+  .sidebar__button {
+    transition: none;
+  }
+  
+  .sidebar__skeleton-avatar,
+  .sidebar__skeleton-line {
+    animation: none;
+  }
+}
+
+.sidebar__button:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.8);
+  outline-offset: -2px;
+}
+
+.sidebar__item {
+  animation: slideInLeft 0.3s ease-out;
+  animation-delay: calc(var(--index, 0) * 0.02s);
+  animation-fill-mode: both;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.sidebar__button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.02) 50%, transparent 100%);
+  pointer-events: none;
+}
+
+.sidebar__item--selected .sidebar__button::after {
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%);
+}

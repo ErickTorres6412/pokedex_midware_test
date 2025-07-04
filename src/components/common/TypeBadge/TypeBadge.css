@@ -1,0 +1,280 @@
+/* Badge base */
+.type-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  border: none;
+  border-radius: var(--border-radius-lg);
+  font-weight: var(--font-weight-medium);
+  text-transform: capitalize;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  text-decoration: none;
+  background: var(--type-color);
+  color: var(--type-text-color);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Tamaños */
+.type-badge--sm {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: var(--font-size-xs);
+  border-radius: var(--border-radius-md);
+}
+
+.type-badge--sm .type-badge__icon svg {
+  width: 12px;
+  height: 12px;
+}
+
+.type-badge--md {
+  padding: var(--spacing-xs) var(--spacing-md);
+  font-size: var(--font-size-sm);
+}
+
+.type-badge--md .type-badge__icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+.type-badge--lg {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-size: var(--font-size-base);
+}
+
+.type-badge--lg .type-badge__icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Icono */
+.type-badge__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.type-badge__icon svg {
+  transition: transform var(--transition-fast);
+}
+
+/* Texto */
+.type-badge__text {
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.025em;
+}
+
+/* Estados clickeable */
+.type-badge--clickable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.type-badge--clickable:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.type-badge--clickable:hover .type-badge__icon svg {
+  transform: scale(1.1);
+}
+
+.type-badge--clickable:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Estilo outlined */
+.type-badge--outlined {
+  background: transparent;
+  border: 2px solid var(--type-color);
+  color: var(--type-color);
+}
+
+.type-badge--outlined:hover {
+  background: var(--type-color);
+  color: var(--type-text-color);
+}
+
+/* Colores específicos por tipo */
+.type-badge--normal {
+  --type-color: var(--type-normal);
+  --type-text-color: #333;
+}
+
+.type-badge--fire {
+  --type-color: var(--type-fire);
+  --type-text-color: #fff;
+}
+
+.type-badge--water {
+  --type-color: var(--type-water);
+  --type-text-color: #fff;
+}
+
+.type-badge--grass {
+  --type-color: var(--type-grass);
+  --type-text-color: #333;
+}
+
+.type-badge--electric {
+  --type-color: var(--type-electric);
+  --type-text-color: #333;
+}
+
+.type-badge--psychic {
+  --type-color: var(--type-psychic);
+  --type-text-color: #fff;
+}
+
+.type-badge--ice {
+  --type-color: var(--type-ice);
+  --type-text-color: #333;
+}
+
+.type-badge--dragon {
+  --type-color: var(--type-dragon);
+  --type-text-color: #fff;
+}
+
+.type-badge--dark {
+  --type-color: var(--type-dark);
+  --type-text-color: #fff;
+}
+
+.type-badge--fairy {
+  --type-color: var(--type-fairy);
+  --type-text-color: #333;
+}
+
+.type-badge--fighting {
+  --type-color: var(--type-fighting);
+  --type-text-color: #fff;
+}
+
+.type-badge--poison {
+  --type-color: var(--type-poison);
+  --type-text-color: #fff;
+}
+
+.type-badge--ground {
+  --type-color: var(--type-ground);
+  --type-text-color: #333;
+}
+
+.type-badge--flying {
+  --type-color: var(--type-flying);
+  --type-text-color: #333;
+}
+
+.type-badge--bug {
+  --type-color: var(--type-bug);
+  --type-text-color: #333;
+}
+
+.type-badge--rock {
+  --type-color: var(--type-rock);
+  --type-text-color: #fff;
+}
+
+.type-badge--ghost {
+  --type-color: var(--type-ghost);
+  --type-text-color: #fff;
+}
+
+.type-badge--steel {
+  --type-color: var(--type-steel);
+  --type-text-color: #333;
+}
+
+/* Estados de focus para accesibilidad */
+.type-badge--clickable:focus {
+  outline: 2px solid var(--type-color);
+  outline-offset: 2px;
+}
+
+.type-badge--clickable:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Animaciones especiales */
+@keyframes typeGlow {
+  0%, 100% {
+    box-shadow: var(--shadow-sm);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--type-color);
+  }
+}
+
+.type-badge--animate {
+  animation: typeGlow 2s ease-in-out infinite;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .type-badge--lg {
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: var(--font-size-sm);
+  }
+  
+  .type-badge--md {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: var(--font-size-xs);
+  }
+}
+
+/* Modo de contraste alto */
+@media (prefers-contrast: high) {
+  .type-badge {
+    border: 2px solid currentColor;
+  }
+  
+  .type-badge--outlined {
+    border-width: 3px;
+  }
+}
+
+/* Modo reducido de movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .type-badge,
+  .type-badge__icon svg {
+    transition: none;
+  }
+  
+  .type-badge--clickable:hover {
+    transform: none;
+  }
+  
+  .type-badge--clickable:hover .type-badge__icon svg {
+    transform: none;
+  }
+  
+  .type-badge--animate {
+    animation: none;
+  }
+}
+
+/* Agrupación de badges */
+.type-badge-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  align-items: center;
+}
+
+.type-badge-group .type-badge {
+  flex-shrink: 0;
+}
+
+/* Variante compacta para espacios reducidos */
+.type-badge--compact {
+  padding: 2px 6px;
+  font-size: 11px;
+  border-radius: 10px;
+}
+
+.type-badge--compact .type-badge__icon {
+  display: none;
+}

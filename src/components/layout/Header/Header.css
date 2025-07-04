@@ -1,0 +1,147 @@
+.header__search-button {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+}
+
+.header {
+  width: 100%;
+  padding: 0;
+}
+
+.header__container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  padding: 0;
+  position: relative;
+}
+
+.header__search-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  color: var(--pokemon-border);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.header__search-button:hover {
+  color: #c82333;
+  transform: scale(1.1);
+  background: rgba(220, 53, 69, 0.1);
+}
+
+.header__search-button:focus-visible {
+  outline: 2px solid var(--pokemon-border);
+  outline-offset: 2px;
+}
+
+.header__search-container {
+  display: flex;
+  align-items: center;
+  min-width: 300px;
+  opacity: 0;
+  transform: translateX(20px) scale(0.95);
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+.header__search-container--open {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+.header__close-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  color: var(--pokemon-border);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.header__close-button:hover {
+  background: #f8f9fa;
+  color: #c82333;
+}
+
+.header__close-button:focus-visible {
+  outline: 2px solid var(--pokemon-border);
+  outline-offset: 2px;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .header__container {
+    justify-content: flex-end;
+  }
+  
+  .header__search-container {
+    min-width: 250px;
+    animation: slideInMobile 0.3s ease-out forwards;
+  }
+  
+  .header__search-button {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@keyframes slideInMobile {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    margin-bottom: 16px;
+  }
+  
+  .header__search-container {
+    min-width: 200px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header__search-button {
+    transition: none;
+  }
+  
+  .header__search-container {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  
+  .header__search-button:hover {
+    transform: none;
+  }
+}

@@ -1,0 +1,52 @@
+.App {
+  min-height: 100vh;
+  background: var(--bg-secondary);
+  font-family: var(--font-family);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.App,
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+.App {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.App * {
+  box-sizing: border-box;
+}
+
+.App img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: optimize-contrast;
+}
+
+.App--loading {
+  pointer-events: none;
+  user-select: none;
+}
+
+@media print {
+  .App {
+    background: white;
+    color: black;
+  }
+}
+
+@media (display-mode: fullscreen) {
+  .App {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}

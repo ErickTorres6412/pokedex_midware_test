@@ -1,0 +1,113 @@
+.pokemon-info {
+  display: flex;
+  flex-direction: row;
+  gap: var(--pokemon-info-gap);
+  padding: 0 var(--pokemon-info-padding) var(--pokemon-info-padding) var(--pokemon-info-padding);
+  background: var(--content-bg);
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  min-height: 400px;
+  animation: fadeIn var(--animation-fade-in);
+}
+
+.pokemon-info__left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: var(--pokemon-image-size);
+  margin-left: var(--pokemon-left-margin);
+}
+
+.pokemon-info__right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.pokemon-info--loading {
+  pointer-events: none;
+}
+
+.pokemon-info__skeleton {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-xl);
+  width: 100%;
+}
+
+.pokemon-info--empty {
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  text-align: center;
+}
+
+.pokemon-info__empty-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+.pokemon-info__empty-icon {
+  color: var(--text-light);
+  opacity: 0.5;
+}
+
+.pokemon-info__empty-title {
+  font-size: var(--font-size-empty-title);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.pokemon-info__empty-description {
+  font-size: var(--font-size-stat);
+  color: var(--text-light);
+  line-height: 1.5;
+  max-width: var(--pokemon-image-size);
+  margin: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .pokemon-info {
+    flex-direction: column;
+    gap: var(--section-spacing);
+    padding: var(--section-spacing);
+  }
+  
+  .pokemon-info__left {
+    width: 100%;
+    margin: 0;
+  }
+  
+  .pokemon-info__skeleton {
+    flex-direction: column;
+    gap: var(--section-spacing);
+  }
+}
+
+@media (max-width: 480px) {
+  .pokemon-info {
+    padding: var(--spacing-md);
+    gap: var(--spacing-md);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pokemon-info {
+    animation: none;
+  }
+}

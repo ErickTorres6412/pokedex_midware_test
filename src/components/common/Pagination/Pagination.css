@@ -1,0 +1,96 @@
+.pagination-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.pagination__button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: transparent;
+  color: #666666;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.pagination__button:hover:not(:disabled) {
+  color: var(--pokemon-border);
+  background: rgba(220, 53, 69, 0.1);
+}
+
+.pagination__button:disabled {
+  color: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.pagination__button:disabled:hover {
+  background: transparent;
+}
+
+.pagination__info {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333333;
+  white-space: nowrap;
+  padding: 0 8px;
+}
+
+.pagination__button:focus-visible {
+  outline: 2px solid var(--pokemon-border);
+  outline-offset: 2px;
+}
+
+.pagination__button:hover:not(:disabled) svg {
+  transform: translateX(2px);
+}
+
+.pagination__button:first-child:hover:not(:disabled) svg {
+  transform: translateX(-2px);
+}
+
+@media (max-width: 768px) {
+  .pagination {
+    gap: 12px;
+  }
+  
+  .pagination__button {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+  
+  .pagination__info {
+    font-size: 12px;
+    padding: 0 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pagination {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pagination__button {
+    transition: none;
+  }
+  
+  .pagination__button:hover:not(:disabled) {
+    transform: none;
+  }
+}
